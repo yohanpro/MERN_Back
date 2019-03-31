@@ -79,7 +79,7 @@ router.post("/login", (req, res) => {
   User.findOne({ email }).then(user => {
     // Check for user
     if (!user) {
-      errors.email = "User not found";
+      errors.email = "유저를 찾지 못했습니다. ";
       return res.status(404).json(errors);
     }
 
@@ -102,7 +102,7 @@ router.post("/login", (req, res) => {
           }
         );
       } else {
-        errors.password = "Password incorrect";
+        errors.password = "Password가 올바르지 않습니다!";
         return res.status(400).json(errors);
       }
     });
